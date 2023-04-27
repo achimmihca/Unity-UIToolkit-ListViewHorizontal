@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -46,8 +47,8 @@ public class SampleSceneControl : MonoBehaviour
 
         // Provide the list view with an explicit height for every row
         // so it can calculate how many items to actually display
-        listView.onItemsChosen += objects => Debug.Log(objects);
-        listView.onSelectionChange += objects => Debug.Log(objects);
+        listView.onItemsChosen += objects => Debug.Log(objects.FirstOrDefault());
+        listView.onSelectionChange += objects => Debug.Log(objects.FirstOrDefault());
         
         // Set the list's data source
         listView.itemsSource = items;
